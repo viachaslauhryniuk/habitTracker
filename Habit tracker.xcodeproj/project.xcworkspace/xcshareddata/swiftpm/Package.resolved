@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftui-contributionchart",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VIkill33/SwiftUI-ContributionChart.git",
+      "state" : {
+        "revision" : "8091d51a4aaa06028cd922d4ac89163e754b37d9",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}
