@@ -78,6 +78,7 @@ struct AddHabit: View {
                         .pickerStyle(.segmented)
                         .padding()
                         TextField("Enter amount of days", text: $addInfo )
+                            .keyboardType(.decimalPad)
                             .multilineTextAlignment(.center)
                             .isHidden(!other)
                     }
@@ -94,8 +95,9 @@ struct AddHabit: View {
         
                     Spacer()
                     Button(action: {
-                       saveHabit()
-                        dismiss()
+                        if saveHabit() != 1{
+                            dismiss()
+                        }
                         
                     }, label: {
                         Image(systemName: "checkmark")
@@ -133,7 +135,7 @@ struct AddHabit: View {
             
         }
     }
-    func saveHabit(){
+    func saveHabit() -> Int{
         
         if !addInfo.isEmpty{
             chosenGoal = addInfo
@@ -141,8 +143,10 @@ struct AddHabit: View {
         if name.isEmpty || description.isEmpty || chosenGoal.isEmpty{
             emptyMsgFlag = true
         }
+        guard !emptyMsgFlag else{return 1}
         let habit = Habit(name: name, description: description, daysGoal: Int(chosenGoal) ?? 0)
         habits.items.append(habit)
+        return 0
     }
 }
 extension View {

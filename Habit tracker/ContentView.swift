@@ -20,20 +20,40 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 VStack{
                     VStack{
-                        List(){
-                          
-                            ForEach(habits.items, id: \.self){ item in
-                                Text(item.name)
-                            }
-                            .listRowBackground(Color("Cream"))
-                        }
+                        List {
+                            ForEach(habits.items, id: \.self) { n in
+                                Text("\(n.name)")
+                                         .foregroundColor(.black)
+                                         .listRowBackground(
+                                             RoundedRectangle(cornerRadius: 5)
+                                                 .background(.clear)
+                                                 .foregroundColor(Color("Cream"))
+                                                 .padding(
+                                                     EdgeInsets(
+                                                         top: 2,
+                                                         leading: 10,
+                                                         bottom: 2,
+                                                         trailing: 10
+                                                     )
+                                                 )
+                                         )
+                                         .listRowSeparator(.hidden)
+                                
+                                 }
+                                 .onDelete { idx in
+                                     habits.items.remove(atOffsets: idx)
+                                 }
+                             }
+                             .listStyle(.plain)
+                         
+                      
                         .background(Color("Text"))
                         .scrollContentBackground(.hidden)
                         .overlay(Group {
                             if(habits.items.isEmpty) {
                                 ZStack() {
                                     Color("Text").ignoresSafeArea()
-                                    Text("No hobits yet")
+                                    Text("No habits yet")
                                 }
                             }
                     })
