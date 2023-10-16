@@ -48,7 +48,7 @@ struct AddHabit: View {
                     TextField("Name of the habit you want to nail", text: $name ) //Textfield for name
                         .font(.custom("Big", size: 18))
                         .frame(width: 350,height: 50)
-                        .cornerRadius(20)
+                        
                         .foregroundColor(.black)
                         .background(Color("Cream"))
                         .multilineTextAlignment(.center)
@@ -57,6 +57,7 @@ struct AddHabit: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color("Sec"), lineWidth: 2)
                         )
+                        .cornerRadius(20)
                     
                     
                     
@@ -64,7 +65,7 @@ struct AddHabit: View {
                     TextField("    Description and motivation for yourself", text: $description, axis: .vertical ) //TextField for description
                         .font(.custom("Big", size: 18))
                         .frame(width: 350,height: 150)
-                        .cornerRadius(20)
+                        
                         .foregroundColor(.black)
                         .background(Color("Cream"))
                         .multilineTextAlignment(.center)
@@ -72,6 +73,7 @@ struct AddHabit: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color("Sec"), lineWidth: 2)
                         )
+                        .cornerRadius(20)
                         .focused($campaignTitleIsFocussed)
                         .onChange(of: description) { newValue in
                             guard let newValueLastChar = newValue.last else { return }
@@ -142,11 +144,11 @@ struct AddHabit: View {
                     }//NavStack Ends
                     .frame(width: 350,height: 175)
                     .background(Color("Cream"))
-                    .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(Color("Sec"), lineWidth: 2)
                     )
+                    .cornerRadius(20)
                     
                     
                     Spacer()
