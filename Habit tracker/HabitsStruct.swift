@@ -12,5 +12,6 @@ struct Habit: Identifiable, Codable, Hashable{
     let name: String
     let description: String
     let daysGoal: Int
+    var daysCount = 0
     
 }
