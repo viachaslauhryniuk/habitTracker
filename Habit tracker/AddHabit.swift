@@ -26,9 +26,7 @@ struct AddHabit: View {
                 Rectangle()
                     .fill(Color("Text"))
                     .ignoresSafeArea()
-                Rectangle()
-                    .fill(.ultraThinMaterial)
-                    .ignoresSafeArea()
+              
                 
                 VStack(spacing: 25) { // main VStack with all stuff
                     HStack{ // Title text
