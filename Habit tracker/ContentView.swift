@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Habit tracker
 //
-//  Created by Слава Гринюк on 11.10.23.
+//  Created by Viachaslau Hryniuk on 11.10.23.
 //
 
 import SwiftUI
@@ -15,51 +15,58 @@ struct ContentView: View {
             ZStack{
                 Color("Text")
                     .edgesIgnoringSafeArea(.all)
-                Rectangle()
-                    .fill(.ultraThinMaterial)
-                    .ignoresSafeArea()
+                               
                 VStack{
                     VStack{
                         List {
                             ForEach(habits.items, id: \.self) { n in
+                                NavigationLink{
+                                    DescriptionView(item: n)
+                                }
+                            label:{
                                 Text("\(n.name)")
-                                         .foregroundColor(.black)
-                                         .listRowBackground(
-                                             RoundedRectangle(cornerRadius: 5)
-                                                 .background(.clear)
-                                                 .foregroundColor(Color("Cream"))
-                                                 .padding(
-                                                     EdgeInsets(
-                                                         top: 2,
-                                                         leading: 10,
-                                                         bottom: 2,
-                                                         trailing: 10
-                                                     )
-                                                 )
-                                         )
-                                         .listRowSeparator(.hidden)
+                                Spacer()
+                            }
                                 
-                                 }
-                                 .onDelete { idx in
-                                     habits.items.remove(atOffsets: idx)
-                                 }
-                             }
-                             .listStyle(.plain)
-                         
-                      
+                            .foregroundColor(.black)
+                            .listRowBackground(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .background(.clear)
+                                    .foregroundColor(Color("Cream"))
+                                    .padding(
+                                        EdgeInsets(
+                                            top: 2,
+                                            leading: 10,
+                                            bottom: 2,
+                                            trailing: 10
+                                        )
+                                    )
+                            )
+                            .listRowSeparator(.hidden)
+                            }
+                            .onDelete { idx in
+                                habits.items.remove(atOffsets: idx)
+                            }
+                        }
+                        .listStyle(.plain)
+                        
+                        
                         .background(Color("Text"))
                         .scrollContentBackground(.hidden)
                         .overlay(Group {
                             if(habits.items.isEmpty) {
                                 ZStack() {
                                     Color("Text").ignoresSafeArea()
+                                 
                                     Text("No habits yet")
                                 }
                             }
-                    })
-                      
+                        })
+                        
                         .navigationTitle("Your Habits")
                     }
+                    
+                    
                     Spacer()
                     HStack{
                         Button(action: {
@@ -81,10 +88,12 @@ struct ContentView: View {
                         
                     }
                     
+                    
                 }
                 
             }
         }
+        .accentColor(.black)
     }
 }
 
