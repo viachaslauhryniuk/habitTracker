@@ -15,6 +15,7 @@
 		5658F3672AD60DB5001AFAB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5658F3662AD60DB5001AFAB0 /* ContentView.swift */; };
 		5658F3692AD60DB7001AFAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5658F3682AD60DB7001AFAB0 /* Assets.xcassets */; };
 		5658F36C2AD60DB7001AFAB0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5658F36B2AD60DB7001AFAB0 /* Preview Assets.xcassets */; };
+		56A79D742ADDE6AA0026C1D9 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A79D732ADDE6AA0026C1D9 /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5658F3662AD60DB5001AFAB0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5658F3682AD60DB7001AFAB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5658F36B2AD60DB7001AFAB0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56A79D732ADDE6AA0026C1D9 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				5658F3642AD60DB5001AFAB0 /* Habit_trackerApp.swift */,
 				5658F3662AD60DB5001AFAB0 /* ContentView.swift */,
+				56A79D732ADDE6AA0026C1D9 /* DescriptionView.swift */,
 				5646FA282AD7579500CFF350 /* HabitsStruct.swift */,
 				5646FA2A2AD757CB00CFF350 /* HabitsList.swift */,
 				5646FA262AD6CE9400CFF350 /* AddHabit.swift */,
@@ -157,6 +160,7 @@
 				5658F3672AD60DB5001AFAB0 /* ContentView.swift in Sources */,
 				5646FA2B2AD757CB00CFF350 /* HabitsList.swift in Sources */,
 				5646FA292AD7579500CFF350 /* HabitsStruct.swift in Sources */,
+				56A79D742ADDE6AA0026C1D9 /* DescriptionView.swift in Sources */,
 				5658F3652AD60DB5001AFAB0 /* Habit_trackerApp.swift in Sources */,
 				5646FA272AD6CE9400CFF350 /* AddHabit.swift in Sources */,
 			);
