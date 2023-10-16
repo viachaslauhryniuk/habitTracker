@@ -8,13 +8,40 @@
 import SwiftUI
 
 struct DescriptionView: View {
+    var item:Habit
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ZStack{
+                Color("Text")
+                    .edgesIgnoringSafeArea(.all)
+              
+                
+                VStack{
+                    
+                }
+                
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Label("Back", systemImage: "arrow.left.circle")
+                            
+                        }
+                    }
+                    
+                }
+            }
+            .navigationTitle("Habit Details")
+        }
+        
     }
 }
 
 struct DescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        DescriptionView()
+        DescriptionView(item: Habit(name: "TestName", description: "...", daysGoal: 0))
     }
 }
