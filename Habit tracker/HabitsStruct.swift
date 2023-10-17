@@ -6,12 +6,12 @@
 //
 
 import Foundation
-
-struct Habit: Identifiable, Codable, Hashable{
+import SwiftUI
+struct Habit:  Hashable, Equatable, Identifiable, Codable{
     let id = UUID()
     let name: String
     let description: String
     let daysGoal: Int
     var daysCount = 0
-    
+    var isChecked = false
 }
