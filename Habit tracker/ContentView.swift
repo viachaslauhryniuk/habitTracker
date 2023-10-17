@@ -6,9 +6,27 @@
 //
 
 import SwiftUI
+struct CheckboxStyle: ToggleStyle {
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+
+        return HStack {
+            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundColor(configuration.isOn ? Color("Sec"): .gray)
+                .font(.system(size: 20, weight: .regular, design: .default))
+                configuration.label
+        }
+        .onTapGesture { configuration.isOn.toggle() }
+
+    }
+}
+
 
 struct ContentView: View {
     @StateObject var habits = Habits()
+    @State private var isChecked = false
     @State private var addHabit = false
     var body: some View {
         NavigationStack{
@@ -19,14 +37,18 @@ struct ContentView: View {
                 VStack{
                     VStack{
                         List {
-                            ForEach(habits.items, id: \.self) { n in
+                            ForEach($habits.items, id: \.self) { $n in
                                 NavigationLink{
                                     DescriptionView(item: n)
                                 }
                             label:{
-                                Text("\(n.name)")
-                                Spacer()
+                                Toggle(isOn: $n.isChecked) {
+                                    Text(n.name)
+                                           }
+                                .toggleStyle(CheckboxStyle())
+                               
                             }
+                            
                                 
                             .foregroundColor(.black)
                             .listRowBackground(
@@ -47,6 +69,7 @@ struct ContentView: View {
                             .onDelete { idx in
                                 habits.items.remove(atOffsets: idx)
                             }
+                            
                         }
                         .listStyle(.plain)
                         
@@ -95,6 +118,7 @@ struct ContentView: View {
         }
         .accentColor(.black)
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
