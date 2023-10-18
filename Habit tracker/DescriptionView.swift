@@ -18,7 +18,22 @@ struct DescriptionView: View {
               
                 
                 VStack{
-                    
+                    Divider()
+                    HStack{
+                        Text(item.name)
+                            .font(.title)
+                            .fontWeight(.heavy)
+                            .padding()
+                        
+                        Spacer()
+                    }
+                    HStack{
+                        Text(item.description)
+                            .fontWeight(.heavy)
+                            .padding(.horizontal,18)
+                        Spacer()
+                    }
+                    Spacer()
                 }
                 
                 .navigationBarBackButtonHidden(true)
@@ -42,6 +57,6 @@ struct DescriptionView: View {
 
 struct DescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        DescriptionView(item: Habit(name: "TestName", description: "...", daysGoal: 0))
+        DescriptionView(item: Habit(name: "TestName", description: "Test description", daysGoal: 0))
     }
 }
