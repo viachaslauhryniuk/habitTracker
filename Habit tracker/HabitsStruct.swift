@@ -8,10 +8,35 @@
 import Foundation
 import SwiftUI
 struct Habit:  Hashable, Equatable, Identifiable, Codable{
+  
+    
     let id = UUID()
     let name: String
     let description: String
     let daysGoal: Int
-    var daysCount = 0
-    var isChecked = false
-}
+    var daysCount: [String: Int]
+    var isChecked:Bool = false{
+        willSet{
+            
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                var today = dateFormatter.string(from: Date.now)
+                if newValue {
+                    if !self.daysCount.keys.contains(today){
+                        self.daysCount[today] = Int.random(in: 1...10)
+                    }
+                        
+                }
+                else{
+                    if self.daysCount.keys.contains(today){
+                        self.daysCount.removeValue(forKey: today)
+                    }
+                }
+                   
+              
+               
+            }
+        }
+    }
+

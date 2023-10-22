@@ -10,11 +10,11 @@
 		5646FA272AD6CE9400CFF350 /* AddHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646FA262AD6CE9400CFF350 /* AddHabit.swift */; };
 		5646FA292AD7579500CFF350 /* HabitsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646FA282AD7579500CFF350 /* HabitsStruct.swift */; };
 		5646FA2B2AD757CB00CFF350 /* HabitsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646FA2A2AD757CB00CFF350 /* HabitsList.swift */; };
-		5646FA2E2AD8293D00CFF350 /* ContributionChart in Frameworks */ = {isa = PBXBuildFile; productRef = 5646FA2D2AD8293D00CFF350 /* ContributionChart */; };
 		5658F3652AD60DB5001AFAB0 /* Habit_trackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5658F3642AD60DB5001AFAB0 /* Habit_trackerApp.swift */; };
 		5658F3672AD60DB5001AFAB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5658F3662AD60DB5001AFAB0 /* ContentView.swift */; };
 		5658F3692AD60DB7001AFAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5658F3682AD60DB7001AFAB0 /* Assets.xcassets */; };
 		5658F36C2AD60DB7001AFAB0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5658F36B2AD60DB7001AFAB0 /* Preview Assets.xcassets */; };
+		56A1667A2AE172C4002133DA /* GithubSwiftCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 56A166792AE172C4002133DA /* GithubSwiftCharts */; };
 		56A79D742ADDE6AA0026C1D9 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A79D732ADDE6AA0026C1D9 /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5646FA2E2AD8293D00CFF350 /* ContributionChart in Frameworks */,
+				56A1667A2AE172C4002133DA /* GithubSwiftCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			);
 			name = "Habit tracker";
 			packageProductDependencies = (
-				5646FA2D2AD8293D00CFF350 /* ContributionChart */,
+				56A166792AE172C4002133DA /* GithubSwiftCharts */,
 			);
 			productName = "Habit tracker";
 			productReference = 5658F3612AD60DB5001AFAB0 /* Habit tracker.app */;
@@ -130,6 +130,7 @@
 			mainGroup = 5658F3582AD60DB5001AFAB0;
 			packageReferences = (
 				5646FA2C2AD8293D00CFF350 /* XCRemoteSwiftPackageReference "SwiftUI-ContributionChart" */,
+				56A166782AE172C4002133DA /* XCRemoteSwiftPackageReference "ContributionChartView" */,
 			);
 			productRefGroup = 5658F3622AD60DB5001AFAB0 /* Products */;
 			projectDirPath = "";
@@ -381,13 +382,21 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		56A166782AE172C4002133DA /* XCRemoteSwiftPackageReference "ContributionChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Wadie-ess/ContributionChartView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5646FA2D2AD8293D00CFF350 /* ContributionChart */ = {
+		56A166792AE172C4002133DA /* GithubSwiftCharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5646FA2C2AD8293D00CFF350 /* XCRemoteSwiftPackageReference "SwiftUI-ContributionChart" */;
-			productName = ContributionChart;
+			package = 56A166782AE172C4002133DA /* XCRemoteSwiftPackageReference "ContributionChartView" */;
+			productName = GithubSwiftCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

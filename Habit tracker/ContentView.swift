@@ -26,7 +26,6 @@ struct CheckboxStyle: ToggleStyle {
 
 struct ContentView: View {
     @StateObject var habits = Habits()
-    @State private var isChecked = false
     @State private var addHabit = false
     var body: some View {
         NavigationStack{
@@ -39,17 +38,18 @@ struct ContentView: View {
                         List {
                             ForEach($habits.items, id: \.self) { $n in
                                 NavigationLink{
-                                    DescriptionView(item: n)
+                                    DescriptionView(totalDays: n.daysGoal, item: n)
                                 }
                             label:{
                                 Toggle(isOn: $n.isChecked) {
                                     Text(n.name)
                                            }
+                                
                                 .toggleStyle(CheckboxStyle())
                                
                             }
                             
-                                
+                           
                             .foregroundColor(.black)
                             .listRowBackground(
                                 RoundedRectangle(cornerRadius: 10)
@@ -66,9 +66,11 @@ struct ContentView: View {
                             )
                             .listRowSeparator(.hidden)
                             }
+                            
                             .onDelete { idx in
                                 habits.items.remove(atOffsets: idx)
                             }
+                            
                             
                         }
                         .listStyle(.plain)
@@ -115,6 +117,12 @@ struct ContentView: View {
                 }
                 
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Text(Date.now.formatted(date: .abbreviated, time: .omitted))
+                }
+            }
+            
         }
         .accentColor(.black)
     }

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "contributionchartview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Wadie-ess/ContributionChartView.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3b92b9be308ebdd6715aa8a7a06f6d6d7c6f472b"
+      }
+    },
+    {
       "identity" : "swiftui-contributionchart",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/VIkill33/SwiftUI-ContributionChart.git",

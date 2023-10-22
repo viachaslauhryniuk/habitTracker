@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ContributionChart
 struct AddHabit: View {
     @ObservedObject var habits: Habits
     @State private var name = ""
@@ -191,6 +190,7 @@ struct AddHabit: View {
             
         }
         else{
+            addInfo = ""
             other = false
             
         }
@@ -205,7 +205,7 @@ struct AddHabit: View {
             emptyMsgFlag = true
         }
         guard !emptyMsgFlag else{return 1}
-        let habit = Habit(name: name, description: description, daysGoal: Int(chosenGoal) ?? 0)
+        let habit = Habit(name: name, description: description, daysGoal: Int(chosenGoal) ?? 0,daysCount: [:])
         habits.items.append(habit)
         return 0
     }

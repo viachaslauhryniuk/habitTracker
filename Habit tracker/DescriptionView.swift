@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
-
+import GithubSwiftCharts
 struct DescriptionView: View {
+    let contributionData:[String: Int]
+    let daysPerRow:Int = 23
+    let totalDays:Int = 92
     var item:Habit
+    init(totalDays: Int, item: Habit) {
+        self.item = item
+        self.contributionData = item.daysCount
+    }
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         NavigationStack{
             ZStack{
                 Color("Text")
                     .edgesIgnoringSafeArea(.all)
-              
+            
                 
                 VStack{
                     Divider()
@@ -34,6 +41,10 @@ struct DescriptionView: View {
                         Spacer()
                     }
                     Spacer()
+                    Text("Days Active: \(item.daysCount.count)")
+                    ContributionChartView(contributionData: contributionData, daysPerRow: daysPerRow, totalDays: totalDays)
+                    
+                    
                 }
                 
                 .navigationBarBackButtonHidden(true)
@@ -57,6 +68,6 @@ struct DescriptionView: View {
 
 struct DescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        DescriptionView(item: Habit(name: "TestName", description: "Test description", daysGoal: 0))
+        DescriptionView(totalDays: 90, item: Habit(name: "TestName", description: "Test description", daysGoal: 180,daysCount: ["2023-10-19": 3,"2023-10-18": 4]))
     }
 }
