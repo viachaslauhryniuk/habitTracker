@@ -17,6 +17,7 @@ struct AddHabit: View {
     @FocusState var isInputActive: Bool // Description textfield focus
     @FocusState private var campaignTitleIsFocussed: Bool // Date textfield focus
     @State private var emptyMsgFlag = false // Empty alert flag
+    @State private var incorrectInp = false // Incorrect input flag
     @Environment(\.dismiss) private var dismiss
    
     var body: some View {
@@ -181,6 +182,9 @@ struct AddHabit: View {
         .alert("Fill all of the fields", isPresented: $emptyMsgFlag) {
             Button("OK", role: .cancel){}
         }
+        .alert("Please enter your data correctly", isPresented: $incorrectInp) {
+            Button("OK", role: .cancel){}
+        }
         
     } // Body ends here
     func onReceive(days: String){
@@ -201,10 +205,13 @@ struct AddHabit: View {
         if !addInfo.isEmpty{
             chosenGoal = addInfo
         }
+        if (Int(chosenGoal) ?? 0) == 0 {
+            incorrectInp = true
+        }
         if name.isEmpty || description.isEmpty || chosenGoal.isEmpty{
             emptyMsgFlag = true
         }
-        guard !emptyMsgFlag else{return 1}
+        guard !emptyMsgFlag && !incorrectInp else{return 1}
         let habit = Habit(name: name, description: description, daysGoal: Int(chosenGoal) ?? 0,daysCount: [:])
         habits.items.append(habit)
         return 0

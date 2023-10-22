@@ -40,6 +40,13 @@ struct DescriptionView: View {
                             .padding(.horizontal,18)
                         Spacer()
                     }
+                    HStack{
+                        Text("Days Goal: \(item.daysGoal)")
+                            .fontWeight(.heavy)
+                            .padding(.horizontal,18)
+                            .padding(.vertical,18)
+                        Spacer()
+                    }
                     Spacer()
                     Text("Days Active: \(item.daysCount.count)")
                     ContributionChartView(contributionData: contributionData, daysPerRow: daysPerRow, totalDays: totalDays)

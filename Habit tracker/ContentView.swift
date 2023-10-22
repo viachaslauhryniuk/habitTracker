@@ -68,7 +68,7 @@ struct ContentView: View {
                             }
                             
                             .onDelete { idx in
-                                habits.items.remove(atOffsets: idx)
+                                deleteTasks(offsets: idx)
                             }
                             
                             
@@ -126,7 +126,12 @@ struct ContentView: View {
         }
         .accentColor(.black)
     }
-    
+    private func deleteTasks(offsets: IndexSet) {
+           withAnimation {
+               habits.items.remove(atOffsets: offsets)
+               
+           }
+       }
 }
 
 struct ContentView_Previews: PreviewProvider {
